@@ -1,4 +1,6 @@
-## Hi there 👋
+##I am Hunter a Data Professional with experience in different data-oriented roles.
+
+- I am currently pursuing my MBA at the University of Illinois Urbana-Champaign and learning Java.
 
 <!--
 **hunterjames47/hunterjames47** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
