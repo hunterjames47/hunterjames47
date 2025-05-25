@@ -1,5 +1,5 @@
-##I am Hunter a Data Professional with experience in different data-oriented roles.
-
+# Data Professional
+I am Hunter, and have experience in different data-oriented roles.
 - I am currently pursuing my MBA at the University of Illinois Urbana-Champaign and learning Java.
 
 <!--
