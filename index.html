@@ -4,40 +4,23 @@
   <meta charset="UTF-8" />
   <title>Hunter James – Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
   <style>
-    :root {
-      --bg: #e8ecef;
-      --text: #222;
-      --primary: #3949ab;
-      --primary-dark: #1a237e;
-      --accent: #ffd600;
-      --card-bg: #ffffff;
-      --navbar-bg: rgba(13, 7, 172, 0.389);
-      --link-hover: #ffd600;
-    }
-    .dark-mode {
-      --bg: #111;
-      --text: #eee;
-      --primary: #90caf9;
-      --primary-dark: #bbdefb;
-      --accent: #fdd835;
-      --card-bg: #1e1e1e;
-      --navbar-bg: rgba(50, 50, 80, 0.85);
-      --link-hover: #fdd835;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
+      background: #e8ecef;
+      color: #222;
       transition: background 0.3s, color 0.3s;
     }
     .navbar {
       display: flex;
       gap: 32px;
-      background: var(--navbar-bg);
+      background: #333;
       padding: 16px 32px;
       border-radius: 0 0 12px 12px;
       margin-bottom: 32px;
@@ -45,34 +28,43 @@
       top: 0;
       z-index: 100;
       transition: opacity 0.8s;
+      align-items: center;
     }
     .navbar.fade {
       opacity: 0.1;
       pointer-events: none;
     }
     .navbar a {
-      color: #fff;
+      color: #eee;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bold;
       letter-spacing: 1px;
       transition: color 0.2s;
     }
     .navbar a:hover {
-      color: var(--link-hover);
+      color: #ffd600;
     }
-    .toggle-mode {
+    .toggle-theme-btn {
       margin-left: auto;
+      background: transparent;
+      border: none;
+      color: #eee;
       cursor: pointer;
-      font-size: 1.2em;
-      color: #fff;
+      font-size: 1.4em;
+      transition: color 0.3s;
+      padding: 6px 12px;
+    }
+    .toggle-theme-btn:hover {
+      color: #ffd600;
     }
     .container {
       max-width: 900px;
       margin: 40px auto;
-      background: var(--card-bg);
+      background: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
-      padding: 40px 32px;
+      padding: 40px 32px 32px 32px;
+      transition: background 0.3s, box-shadow 0.3s, color 0.3s;
     }
     .profile-header {
       display: flex;
@@ -85,45 +77,56 @@
       height: 96px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--primary);
+      border: 3px solid #555;
       background: #e3e3e3;
+      transition: border-color 0.3s;
     }
     .tagline {
-      color: var(--primary);
+      color: #555;
       font-size: 1.2em;
       margin-top: 8px;
+      transition: color 0.3s;
     }
     h1 {
-      color: var(--primary-dark);
+      color: #111;
       font-size: 2.5em;
       margin-bottom: 0.2em;
+      transition: color 0.3s;
     }
     h2 {
-      color: var(--primary);
+      color: #555;
       margin-top: 2em;
       margin-bottom: 0.5em;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #e3e3e3;
       padding-bottom: 0.2em;
       scroll-margin-top: 80px;
+      transition: color 0.3s, border-color 0.3s;
     }
     ul {
       list-style: disc;
-      padding-left: 1.5em;
+      padding-left: 0;
+      margin-left: 1em;
+      color: #222;
+      transition: color 0.3s;
     }
     ul ul {
+      list-style: disc;
       padding-left: 1.5em;
     }
     .card {
-      background: var(--bg);
+      background: #f4f6fa;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
       padding: 24px;
       margin-bottom: 20px;
+      transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+      color: #222;
     }
     .project-link {
       color: #1976d2;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bold;
+      transition: color 0.2s;
     }
     .project-link:hover {
       text-decoration: underline;
@@ -132,15 +135,16 @@
       margin-top: 2em;
       display: flex;
       gap: 24px;
+      justify-content: flex-start;
     }
     .contact-icons a {
-      color: var(--primary);
+      color: #555;
       font-size: 2em;
       transition: color 0.2s;
       text-decoration: none;
     }
     .contact-icons a:hover {
-      color: var(--primary-dark);
+      color: #111;
     }
     footer {
       text-align: center;
@@ -148,6 +152,7 @@
       margin-top: 40px;
       padding: 16px 0;
       font-size: 0.95em;
+      transition: color 0.3s;
     }
     @media (max-width: 600px) {
       .container {
@@ -162,6 +167,69 @@
         gap: 12px;
         border-radius: 0 0 8px 8px;
       }
+      .toggle-theme-btn {
+        margin-left: 0;
+        align-self: flex-end;
+      }
+    }
+    body.dark {
+      background: #121212;
+      color: #ddd;
+    }
+    body.dark .navbar {
+      background: #222;
+    }
+    body.dark .navbar a {
+      color: #ddd;
+    }
+    body.dark .navbar a:hover {
+      color: #ffd600;
+    }
+    body.dark .container {
+      background: #1e1e1e;
+      box-shadow: 0 2px 16px rgba(255, 255, 255, 0.1);
+      color: #ddd;
+    }
+    body.dark .profile-pic {
+      border-color: #bbb;
+      background: #444;
+    }
+    body.dark .tagline {
+      color: #bbb;
+    }
+    body.dark h1 {
+      color: #eee;
+    }
+    body.dark h2 {
+      color: #bbb;
+      border-bottom-color: #444;
+    }
+    body.dark ul,
+    body.dark .card {
+      color: #ddd;
+      background: #2a2a2a;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+    }
+    body.dark .project-link {
+      color: #90caf9;
+    }
+    body.dark .project-link:hover {
+      color: #bbdefb;
+    }
+    body.dark .contact-icons a {
+      color: #bbb;
+    }
+    body.dark .contact-icons a:hover {
+      color: #eee;
+    }
+    body.dark footer {
+      color: #666;
+    }
+    body.dark .toggle-theme-btn {
+      color: #ccc;
+    }
+    body.dark .toggle-theme-btn:hover {
+      color: #ffd600;
     }
   </style>
 </head>
@@ -173,12 +241,17 @@
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
-    <span class="toggle-mode" id="toggleMode"><i class="fas fa-moon"></i></span>
+    <button class="toggle-theme-btn" id="themeToggle" aria-label="Toggle Dark Mode">
+      <i class="fas fa-moon"></i>
+    </button>
   </nav>
-
   <div class="container">
     <div class="profile-header">
-      <img src="https://www.gravatar.com/avatar/?d=mp&s=200" alt="Hunter James" class="profile-pic" />
+      <img
+        src="https://www.gravatar.com/avatar/?d=mp&s=200"
+        alt="Hunter James"
+        class="profile-pic"
+      />
       <div>
         <h1>Hunter James</h1>
         <p class="tagline">Data Professional | Lifelong Learner</p>
@@ -186,56 +259,166 @@
     </div>
 
     <h2 id="about">About Me</h2>
-    <p>I am a data worker with an interest in constant learning and improvement.<br>
-    I have worked in roles with tasks that align with those of a data analyst, database developer, software specialist, data engineer, and DBA.<br>
-    I have experience with SQL, Python, R, Scala, and HTML.</p>
+    <p>
+      I am a data worker with an interest in constant learning and improvement.
+      <br />
+      I have worked in roles with tasks that align with those of a data analyst,
+      database developer, software specialist, data engineer, and DBA. <br />
+      I have experience with SQL, Python, R, Scala, and HTML.
+    </p>
 
     <h2 id="experience">Work Experience</h2>
-    <!-- Add your experience sections here -->
+    <div class="card">
+      <strong>SQL Developer</strong> | General Dynamics IT <em>(Jun 2023 – Present)</em>
+      <ul>
+        <li>Designed and developed new database structures, including ERDs.</li>
+        <li>
+          Created data migration scripts to transfer and reformat data, ensuring the
+          integrity of hundreds of millions of records.
+        </li>
+        <li>Utilized Databricks for the transformation and analysis of large datasets.</li>
+        <li>Optimized stored procedures, triggers, and indexes to improve performance.</li>
+        <li>Developed ETL pipelines using SSIS and ADF to automate workflows and migrate data.</li>
+        <li>Collaborated with cross-functional teams to ensure seamless database integration.</li>
+        <li>Managed the NCHHSTP’s SQL Server Production, Training, QA, Failover, and Development instances.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <strong>Software Developer</strong> | TEKsystems <em>(Nov 2022 – Jun 2023)</em>
+      <ul>
+        <li>Contract to Hire for the CDC through General Dynamics (hired on at GDIT at the end of the contract).</li>
+        <li>Developed interactive dashboards on Power BI to visualize key metrics.</li>
+        <li>Created and optimized SQL functions, triggers, and stored procedures.</li>
+        <li>Designed and maintained SSIS &amp; ADF pipelines for ETL processes.</li>
+        <li>Worked with senior developers to enhance database efficiency and integrity.</li>
+        <li>Assisted in migration projects by refining data structures and processes.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <strong>Application Specialist</strong> | Aviagen <em>(Jan 2022 – Oct 2022)</em>
+      <ul>
+        <li>Managed SQL databases and user access.</li>
+        <li>Beta-tested program updates and designed UI wireframes.</li>
+        <li>Provided reports using SQL, Ingres, Crystal Reports, and Qlik.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <strong>Service Intelligence Analyst</strong> | LG <em>(Jul 2021 – Jan 2022)</em>
+      <ul>
+        <li>Analyzed call center data with Excel &amp; Python.</li>
+        <li>Used AWS, SAP BusinessObjects, SQL, and Sprinklr.</li>
+        <li>Automated reporting, reducing time by 70%.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <strong>Data Analyst</strong> | Aviagen <em>(May 2020 – Jul 2021)</em>
+      <ul>
+        <li>Analyzed quality metrics and automated reports.</li>
+        <li>Created databases, cutting reporting effort by 90%.</li>
+      </ul>
+    </div>
 
     <h2 id="education">Education</h2>
-    <!-- Add your education sections here -->
+    <div class="card">
+      <strong>University of Illinois Urbana-Champaign</strong> (Aug 2024 - August 2026)
+      <ul>
+        <li style="list-style-type: none; padding-left: 0;">MBA</li>
+      </ul>
+    </div>
+    <div class="card">
+      <strong>Western Governors University</strong> (Mar 2024)
+      <ul>
+        <li style="list-style-type: none; padding-left: 0;">MS Data Analytics </li>
+      </ul>
+    </div>
+    <div class="card">
+      <strong>Royal Holloway, University of London</strong> (May 2020)
+      <ul>
+        <li style="list-style-type: none; padding-left: 0;">BS Accounting, Finance &amp; Economics</li>
+      </ul>
+    </div>
 
     <h2 id="skills">Skills</h2>
-    <!-- Add your skills list here -->
+    <div class="card">
+      <ul>
+        <li><strong>Databases &amp; ETL:</strong> SQL, MS SQL Server, Ingres, SSIS, ADF, Databricks, Synapse</li>
+        <li><strong>Programming &amp; Analysis:</strong> Python, R, SQL, Excel (Power Query, PivotTables)</li>
+        <li><strong>BI &amp; Reporting:</strong> Power BI, Tableau, Qlik Sense, SAP BusinessObjects</li>
+        <li><strong>Languages:</strong> Spanish (B2 Proficiency)</li>
+      </ul>
+    </div>
 
     <h2 id="projects">Projects</h2>
-    <!-- Add your projects here -->
+    <div class="card">
+      <a
+        class="project-link"
+        href="https://github.com/hunterjames47/hunterjames47/blob/225659197a1cdaa56f357fda5661488ceba447ff/Review%20Categorization%20-%20RNN/ReviewCategorization_Report.md"
+        >Review Categorization</a
+      >
+      – For my capstone project, in Python, I utilized RNNs to predict the star rating customers left products based on the content of the reviews.
+    </div>
 
     <h2 id="contact">Contact</h2>
     <div class="contact-icons">
-      <a href="mailto:hunterj68@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/in/hunter-james-305513187" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:hunterj68@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/hunter-james-305513187"
+        target="_blank"
+        title="LinkedIn"
+      >
+        <i class="fab fa-linkedin"></i>
+      </a>
     </div>
   </div>
-
   <footer>&copy; 2025 Hunter James</footer>
-
   <script>
     document.querySelectorAll('.navbar a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', e => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
 
-    const navbar = document.getElementById('navbar');
     let lastScroll = 0;
-    window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function () {
       const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      navbar.classList.toggle('fade', currentScroll > 120);
+      if (currentScroll > 120) {
+        navbar.classList.add('fade');
+      } else {
+        navbar.classList.remove('fade');
+      }
       lastScroll = currentScroll;
     });
 
+    const toggleBtn = document.getElementById('themeToggle');
     const body = document.body;
-    const toggleBtn = document.getElementById('toggleMode');
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') body.classList.add('dark-mode');
+
+    function setTheme(isDark) {
+      if (isDark) {
+        body.classList.add('dark');
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        toggleBtn.setAttribute('aria-label', 'Switch to Light Mode');
+      } else {
+        body.classList.remove('dark');
+        toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        toggleBtn.setAttribute('aria-label', 'Switch to Dark Mode');
+      }
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
 
     toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+      setTheme(!body.classList.contains('dark'));
     });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      setTheme(true);
+    } else {
+      setTheme(false);
+    }
   </script>
 </body>
 </html>
