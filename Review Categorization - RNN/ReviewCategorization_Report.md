@@ -113,21 +113,19 @@ For data extraction, the function provided on the dataset website was
 used. The.json.gz file was loaded into a pandas dataframe.
 
 ![A screen shot of a computer code Description automatically
-generated](screenshots/image1.png){width="4.25in" height="1.43in"}
+generated](screenshots/image1.png)
 
 Next, DF.info command was run to get a glance at the newly loaded pandas
 dataframe as well as to determine which columns contain the most
 pertinent information.
 
 ![A white paper with black text Description automatically
-generated](screenshots/image2.png){width="4.25in"
-height="4.4529090113735785in"}
+generated](screenshots/image2.png)
 
 The shape and the info of the dataframe were checked.
 
 ![A screenshot of a computer code Description automatically
-generated](screenshots/image3.png){width="4.25in" height="4.56in"}
-
+generated](screenshots/image3.png)
 The 'reviewTime' column was then converted to the datetime datatype from
 being an object. Right after the conversion, as there were reviews from
 at least 1999, a mask was applied to only keep reviews between the
@@ -135,8 +133,7 @@ beginning of 2008 and the end of 2018. After the mask was applied, the
 shape was checked to see how many rows were removed.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image4.png){width="4.25in" height="1.02in"}
-
+generated](screenshots/image4.png)
 The dataframe was checked for nulls, with the only columns whose nulls
 were of importance being the 'overall' column and the 'reviewText'
 column. The nulls were then dropped in the 'reviewText' column and then
@@ -144,12 +141,10 @@ the nulls were checked again just to make sure that everything was
 dropped successfully.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image5.png){width="4.25in"
-height="2.472280183727034in"}
+generated](screenshots/image5.png)
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image5.png){width="4.25in"
-height="2.8615791776027995in"}
+generated](screenshots/image5.png)
 
 The 'vote', 'verified', 'unixReviewTime', 'asin', 'reviewerName',
 'summary', and 'image' columns were all dropped as they are not relevant
@@ -157,7 +152,7 @@ to this analysis. DF.info() was then called to check that only the
 expected columns remained in the dataframe.
 
 ![A screenshot of a computer program Description automatically
-generated](screenshots/image6.png){width="4.25in" height="1.75in"}
+generated](screenshots/image6.png) 
 
 The dataframe was checked for duplicates based on the 'reviewText' and
 'reviewerID' columns. These two columns were chosen together as shorter
@@ -172,12 +167,10 @@ could have a generic text that gets copy-pasted into reviews. Since
 removed to not skew the model.
 
 ![A screenshot of a computer program Description automatically
-generated](screenshots/image7.png){width="4.25in"
-height="0.43058070866141734in"}
+generated](screenshots/image7.png)
 
 ![A screenshot of a computer program Description automatically
-generated](screenshots/image7.png){width="4.25in"
-height="4.154411636045494in"}
+generated](screenshots/image7.png)
 
 The count of the values within the 'overall' column is checked and then
 the dataframe is reselected to have a proportionate amount of 1-5
@@ -187,14 +180,13 @@ chosen a little arbitrarily; it is quite close to the max of 280,000
 while being a nice round number.
 
 ![A screenshot of a computer code Description automatically
-generated](screenshots/image8.png){width="4.25in" height="1.87in"}
+generated](screenshots/image8.png) 
 
 The dataframe is then checked to ensure that the previous operation was
 successful.
 
 ![A white paper with black text Description automatically
-generated](screenshots/image9.png){width="4.25in"
-height="4.868190069991251in"}
+generated](screenshots/image9.png)
 
 As shown in the above step, the style column is stored as rows of
 dictionaries containing product information. This dictionary will be
@@ -206,13 +198,13 @@ the accompanying information into the relevant column in the appropriate
 row.
 
 ![A screenshot of a computer code Description automatically
-generated](screenshots/image10.png){width="4.25in" height="2.55in"}
+generated](screenshots/image10.png) 
 
 DF.info() is called to check the added columns and the amount of
 non-null information in each one.
 
 ![A close-up of a document Description automatically
-generated](screenshots/image11.png){width="4.25in" height="6.68in"}
+generated](screenshots/image11.png) 
 
 Next the pandas display.max_rows option is set to none so that I can
 inspect the 'Style:' column as it had one of the highest quantities of
@@ -222,12 +214,12 @@ display.max_rows option was then set to 100 to reduce clutter on the
 screen in the following steps.
 
 ![A white sheet with black text Description automatically
-generated](screenshots/image12.png){width="4.25in" height="6.54in"}
+generated](screenshots/image12.png) 
 
 The dataframe was then set to only include the columns that will be
 relevant for the rest of the analysis.
 
-![](screenshots/image13.png){width="4.25in" height="0.33in"}
+![](screenshots/image13.png) 
 
 Now the text processing begins. An additional column is created and
 overwritten in the various steps to ensure that the text is cleaned of
@@ -238,47 +230,46 @@ however after performing value_counts() on the column, there are a
 handful of rows with characters that don't display correctly.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image14.png){width="4.25in" height="7.54in"}
+generated](screenshots/image14.png) 
 
 These characters are then converted to a list and removed in the same
 way as numbers, letters, and punctuation in the previous step, and the
 value count of the 'Unusual' column is checked again.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image15.png){width="4.25in" height="1.1in"}
+generated](screenshots/image15.png) 
 
 After being verified that all unexpected characters are parsed out, the
 column is dropped and .info() is called to verify the column was dropped
 correctly.
 
 ![A screenshot of a computer code Description automatically
-generated](screenshots/image16.png){width="4.25in" height="2.61in"}
+generated](screenshots/image16.png) 
 
 The steps to remove the punctuation, numbers, escape sequences, and
 characters that could not be displayed were repeated and applied to the
 'reviewText' column, creating the new column 'ReviewsNoPunct'.
 
 ![A screenshot of a computer program Description automatically
-generated](screenshots/image17.png){width="4.25in" height="1.67in"}
+generated](screenshots/image17.png) 
 
 The variables were cleared to free up some memory.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image18.png){width="4.25in"
-height="2.340521653543307in"}
+generated](screenshots/image18.png)
 
 The new column, 'ReviewsNoPunct', is printed for a quick visual check of
 the rows that are displayed.
 
 ![A screenshot of a computer error message Description automatically
-generated](screenshots/image19.png){width="4.25in" height="2.24in"}
+generated](screenshots/image19.png) 
 
 The list of stop words from the NLTK module is then printed in
 preparation for the next step, the 'reviewText' column is dropped and
 DF.info() is called to verify that the column was dropped.
 
 ![A screenshot of a computer screen Description automatically
-generated](screenshots/image20.png){width="4.25in" height="3.11in"}
+generated](screenshots/image20.png) 
 
 Next, the lemmatizer is initialized, the stop words list from NLTK is
 assigned to a variable called stop_words and negation words from the
@@ -290,7 +281,7 @@ longer, the process returns an actual word, whereas a stemmer, while
 faster, only removes "suffixes from the end of word tokens" (IBM).
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image21.png){width="4.25in" height="0.99in"}
+generated](screenshots/image21.png) 
 
 A function is then defined and applied to the 'ReviewsNoPunct' column
 that converts the text to lowercase, tokenizes the text, creates a list
@@ -305,13 +296,13 @@ accuracy as opposed to leaving the negation word as is or removing the
 negation word via the standard stop word filtering process.
 
 ![A computer screen shot of a program Description automatically
-generated](screenshots/image22.png){width="4.25in" height="2.27in"}
+generated](screenshots/image22.png) 
 
 The 'Review_Cleaned' column is then printed to quickly check that
 everything completed as expected.
 
 ![A screenshot of a computer screen Description automatically
-generated](screenshots/image23.png){width="4.25in" height="2.14in"}
+generated](screenshots/image23.png) 
 
 A column called 'TokenLen' is created that stores the number of tokens
 in a cleaned review. The minimum number of tokens was checked and then
@@ -319,20 +310,17 @@ rows at that quantity, 0, are printed. Since there didn't seem to be any
 pertinent information in these rows, they were filtered out.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image24.png){width="4.25in"
-height="3.340402449693788in"}
+generated](screenshots/image24.png)
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image24.png){width="4.25in"
-height="0.19447615923009623in"}
+generated](screenshots/image24.png)
 
 A new column, 'lang', was created that stores the results from applying
 the detect function from the langdetect module. The counts of each value
 were then printed.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image25.png){width="4.25in"
-height="4.229166666666667in"}
+generated](screenshots/image25.png)
 
 A preview was printed that shows rows where the language is not labeled
 as 'en', or English. As can be seen in the screenshot below, there are a
@@ -343,20 +331,20 @@ correctly labeled. As shown below, some reviews are incorrectly labeled,
 but many are correctly labeled.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image26.png){width="4.25in" height="4.6in"}
+generated](screenshots/image26.png) 
 
 From the value counts in a previous step, 'af' was the second most
 common. For verification purposes, the dataframe rows where lang equals
 'af' was displayed and all the rows shown are incorrectly labeled.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image27.png){width="4.25in" height="2.12in"}
+generated](screenshots/image27.png) 
 
 The dataframe was filtered to exclude any row where lang equals 'es',
 and the 'lang' column was dropped.
 
 ![A screenshot of a computer code Description automatically
-generated](screenshots/image28.png){width="4.25in" height="1.03in"}
+generated](screenshots/image28.png) 
 
 The 'TokenLen' column was written over and recreated since rows were
 dropped in the previous step involving the 'lang' column. The maximum
@@ -368,7 +356,7 @@ option for max rows to display was set to none so that all print and can
 be visibly inspected and this option was set back to 100 after.
 
 ![A screenshot of a computer program Description automatically
-generated](screenshots/image29.png){width="4.25in" height="4.1in"}
+generated](screenshots/image29.png) 
 
 The dataframe was printed where 'TokenLen' equals 1 to ensure that the
 values look reasonable. As shown below, the values are reasonable, can
@@ -376,8 +364,7 @@ be expected in a review, and also demonstrate that the negation handling
 from the previous steps worked.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image30.png){width="4.25in"
-height="2.5074704724409447in"}
+generated](screenshots/image30.png)
 
 The counts of the values in the 'overall' column were printed, and two
 new columns were created based on the values in the 'overall' column.
@@ -387,8 +374,7 @@ mapped to neutral, and 4.0 and 5.0 were mapped to positive. For the
 and 4.0 and 5.0 were mapped to positive.
 
 ![A screenshot of a computer program Description automatically
-generated](screenshots/image31.png){width="4.25in"
-height="1.1944444444444444in"}
+generated](screenshots/image31.png)
 
 The counts for the values in both new columns were printed and the
 current dataframe was copied and resampled into two new dataframes. The
@@ -404,22 +390,19 @@ the minimum and separate dataframes were created because the resampling
 of one would make the other two columns imbalanced.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image32.png){width="4.25in"
-height="0.7294050743657043in"}
+generated](screenshots/image32.png)
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image32.png){width="4.247949475065616in"
-height="0.8611176727909011in"}
+generated](screenshots/image32.png)
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image32.png){width="4.247949475065616in"
-height="0.5486023622047244in"}
+generated](screenshots/image32.png)
 
 The 'overall' column was then one-hot encoded and replaced with 5
 columns representing each of the possible 5 values in the column.
 
 ![A close-up of a sign Description automatically
-generated](screenshots/image33.png){width="4.25in" height="0.43in"}
+generated](screenshots/image33.png) 
 
 The tokenizer from the Keras library was used due to ease of use and
 reliability. The tokenizer does have limitations, notably the need to
@@ -430,7 +413,7 @@ Each row was converted to a list, and each list was then converted to a
 sequence. DF.info() was printed to verify the above changes.
 
 ![A screenshot of a computer code Description automatically
-generated](screenshots/image34.png){width="4.25in" height="4.45in"}
+generated](screenshots/image34.png) 
 
 The X and y variables are created with X being the padded sequences and
 y being mapped to the columns that store the labels for each sequence.
@@ -444,13 +427,13 @@ tokenizer portion of the previous step were repeated two more times for
 each of the two other dataframes previously created.
 
 ![A screenshot of a computer program Description automatically
-generated](screenshots/image35.png){width="4.25in" height="2.39in"}
+generated](screenshots/image35.png) 
 
 ![A screenshot of a computer program Description automatically
-generated](screenshots/image36.png){width="4.25in" height="4.16in"}
+generated](screenshots/image36.png) 
 
 ![A screenshot of a computer program Description automatically
-generated](screenshots/image37.png){width="4.25in" height="2.01in"}
+generated](screenshots/image37.png) 
 
 **Analysis**
 
@@ -470,7 +453,7 @@ truncated, histograms provide a very informative and comparative
 overview of the distributions of the number of tokens.
 
 > ![A screenshot of a computer screen Description automatically
-> generated](screenshots/image38.png){width="4.25in" height="2.58in"}
+> generated](screenshots/image38.png) 
 
 **First Model -- 5 label star model:**
 
@@ -511,7 +494,7 @@ dataset took over an hour per epoch which makes it too computationally
 expensive for this analysis.
 
 > ![A screenshot of a computer program Description automatically
-> generated](screenshots/image39.png){width="4.25in" height="3.86in"}
+> generated](screenshots/image39.png) 
 
 A model checkpoint and early stopping were initialized based on the
 validation accuracy. The model was compiled using the ADAM optimizer,
@@ -531,10 +514,10 @@ epoch instead of going all the way to the eleventh epoch to prevent
 overfitting.
 
 > ![A screenshot of a computer code Description automatically
-> generated](screenshots/image40.png){width="4.25in" height="2.58in"}
+> generated](screenshots/image40.png) 
 >
 > ![A screenshot of a computer code Description automatically
-> generated](screenshots/image41.png){width="4.25in" height="0.55in"}
+> generated](screenshots/image41.png) 
 
 The accuracy, validation accuracy, loss, and validation loss were then
 plotted in line graphs and shown below. As demonstrated in the graph,
@@ -544,7 +527,7 @@ was the highest on this model, out of the three models, and the accuracy
 was the lowest.
 
 > ![A screenshot of a computer screen Description automatically
-> generated](screenshots/image42.png){width="4.25in" height="3.79in"}
+> generated](screenshots/image42.png) 
 
 A heat map was created and plotted to show the model's predictions as
 compared to the actual labels. The labels are all shifted down one from
@@ -558,19 +541,17 @@ to the above screenshots and the classification report below, is not
 very good at determining the single actual label.
 
 > ![A computer code with text Description automatically generated with
-> medium confidence](screenshots/image43.png){width="4.25in"
-> height="1.52in"}
+> medium confidence](screenshots/image43.png)> 
 >
 > ![A screenshot of a color chart Description automatically
-> generated](screenshots/image44.png){width="4.25in" height="3.68in"}
+> generated](screenshots/image44.png) 
 
 As previously mentioned, the model is best at correctly labeling reviews
 with a label of 4, or 5 in the actual dataset, and worst at labeling
 reviews with a label of 2, or 3 in the actual dataset.
 
 > ![A screenshot of a computer Description automatically
-> generated](screenshots/image45.png){width="4.25in"
-> height="2.4657917760279964in"}
+> generated](screenshots/image45.png)> 
 
 **Second Model -- 3 labels Positive, Neutral, and Negative model:**
 
@@ -578,15 +559,15 @@ The second model was set up in the same way as the first model except
 the dense layer which now outputs 3 different labels.
 
 > ![A screenshot of a computer program Description automatically
-> generated](screenshots/image46.png){width="4.25in" height="3.89in"}
+> generated](screenshots/image46.png) 
 
 The model is compiled in the same way as the first model.
 
 > ![A screenshot of a computer program Description automatically
-> generated](screenshots/image47.png){width="4.25in" height="2.23in"}
+> generated](screenshots/image47.png) 
 >
 > ![A white background with black text Description automatically
-> generated](screenshots/image48.png){width="4.25in" height="0.54in"}
+> generated](screenshots/image48.png) 
 
 The accuracy, validation accuracy, loss, and validation loss were then
 plotted in line graphs and shown below. As shown below, the model's
@@ -596,7 +577,7 @@ the model finished running. The loss was lower on this model than the
 model.
 
 > ![A screenshot of a computer screen Description automatically
-> generated](screenshots/image49.png){width="4.25in" height="3.77in"}
+> generated](screenshots/image49.png) 
 
 The same trend from the previous model continues with this model. The
 closer the label gets to being the middle value, neutral, the worse it
@@ -606,18 +587,17 @@ determining the range of a label, within 1 label value, but is still
 suboptimal at determining the correct single label.
 
 > ![A white rectangular object with a black border Description
-> automatically generated](screenshots/image50.png){width="4.25in"
-> height="1.17in"}
+> automatically generated](screenshots/image50.png)> 
 >
 > ![A screenshot of a color chart Description automatically
-> generated](screenshots/image51.png){width="4.25in" height="3.71in"}
+> generated](screenshots/image51.png) 
 
 As mentioned, and shown in the heatmap, the model does much better at
 correctly labeling 0, negative, and 2, positive, than correctly labeling
 1, neutral.
 
 > ![A screenshot of a computer program Description automatically
-> generated](screenshots/image52.png){width="4.25in" height="2.61in"}
+> generated](screenshots/image52.png) 
 
 **Third Model -- 2 label Positive or Negative model:**
 
@@ -632,18 +612,17 @@ changed from softmax to sigmoid because the dense layer now classifies
 into binary labels instead of multiclass labels (Basta, 2020).
 
 > ![A screenshot of a computer program Description automatically
-> generated](screenshots/image53.png){width="4.25in" height="3.93in"}
+> generated](screenshots/image53.png) 
 
 The model is compiled in the same way as the previous models except the
 loss is now binary cross-entropy. The change was made because the dense
 layer now selects between two labels instead of multiple classes.
 
 > ![A screenshot of a computer program Description automatically
-> generated](screenshots/image54.png){width="4.25in"
-> height="2.9327734033245845in"}
+> generated](screenshots/image54.png)> 
 >
 > ![A white background with black text Description automatically
-> generated](screenshots/image55.png){width="4.25in" height="0.55in"}
+> generated](screenshots/image55.png) 
 
 The accuracy, validation accuracy, loss, and validation loss were then
 plotted in line graphs and shown below. As shown below, the model's
@@ -652,7 +631,7 @@ the model finished running. The loss was a lot lower and the accuracy
 was a lot higher than either of the preceding models.
 
 > ![A screenshot of a computer screen Description automatically
-> generated](screenshots/image56.png){width="4.25in" height="3.48in"}
+> generated](screenshots/image56.png) 
 
 A heatmap was created and plotted and as can be seen below, the model
 did quite a good job of correctly predicting the labels. The only
@@ -661,10 +640,10 @@ correctly labeled, while the squares that represent being incorrectly
 labeled are completely black.
 
 > ![A computer screen shot of a code Description automatically
-> generated](screenshots/image57.png){width="4.25in" height="1.84in"}
+> generated](screenshots/image57.png) 
 >
 > ![A screenshot of a computer screen Description automatically
-> generated](screenshots/image58.png){width="4.25in" height="3.76in"}
+> generated](screenshots/image58.png) 
 
 The classification report was printed and shown below. As mentioned in
 the previous step, the classification report shows a relatively high
@@ -674,7 +653,7 @@ while the recall for 1, positive, is slightly higher than it is for
 negative.
 
 > ![A screenshot of a computer code Description automatically
-> generated](screenshots/image59.png){width="4.25in" height="2.37in"}
+> generated](screenshots/image59.png) 
 
 **Application**
 
@@ -703,7 +682,7 @@ Powershell Prompt; this created the exe and stored the necessary files
 alongside it.
 
 ![A computer screen shot of a black screen Description automatically
-generated](screenshots/image60.png){width="4.25in" height="1.72in"}
+generated](screenshots/image60.png) 
 
 The first thing done after importing the necessary libraries and
 downloading the three items from NLTK is creating the initial window.
@@ -722,7 +701,7 @@ name, and English checkbox are all referenced with keys and are then
 stored as variables and called on for later portions of the code.
 
 ![A screen shot of a computer program Description automatically
-generated](screenshots/image61.png){width="4.25in" height="2.23in"}
+generated](screenshots/image61.png) 
 
 If the user wants to exit or cancel, then a popup appears confirming
 this choice, and the program exits. If the user continues, then once a
@@ -731,13 +710,13 @@ updates throughout the code until the code is completed, an Excel file
 is outputted, and the progress bar closes.
 
 ![A computer screen with text Description automatically
-generated](screenshots/image62.png){width="4.25in" height="0.8in"}
+generated](screenshots/image62.png) 
 
 There are checks to make sure the user selects a file and inputs the
 column name that contains the reviews.
 
 ![A computer code with white and blue text Description automatically
-generated](screenshots/image63.png){width="4.25in" height="0.66in"}
+generated](screenshots/image63.png) 
 
 The program begins processing the file by grabbing the file extension,
 importing the file based on the extension, and then updating the
@@ -746,7 +725,7 @@ and then processing of the data begins in the same way as the data was
 processed before developing and training the models in section C.
 
 ![A computer screen shot of a program code Description automatically
-generated](screenshots/image64.png){width="4.25in" height="7.25in"}
+generated](screenshots/image64.png) 
 
 The processing continues to ensure the data that is fed into the model
 is similarly prepared to the original training and validation data
@@ -757,7 +736,7 @@ bar is updated periodically so the user has an idea of how far along the
 process is.
 
 ![A screen shot of a computer program Description automatically
-generated](screenshots/image65.png){width="4.25in" height="5.32in"}
+generated](screenshots/image65.png) 
 
 The sequences are padded to a length of 40 because, in the original
 model, the training data was padded to a length of 40. The Keras model
@@ -766,32 +745,32 @@ positive for easier readability. The progress bar is updated three times
 throughout this process.
 
 ![A screenshot of a computer program Description automatically
-generated](screenshots/image66.png){width="4.25in" height="2.37in"}
+generated](screenshots/image66.png) 
 
 The columns created during the processing steps, aside from the
 predicted label column, are dropped and the code checks if there is a
 folder called "Labeled Reviews", if not, one is created.
 
 ![A black background with white text Description automatically
-generated](screenshots/image67.png){width="4.25in" height="0.8in"}
+generated](screenshots/image67.png) 
 
 A .xlsx file is printed in the current directory to the folder
 created/checked for in the previous line, without an index, and the
 progress bar is set to 100% and then closed.
 
 ![A black screen with white text Description automatically
-generated](screenshots/image68.png){width="4.25in" height="0.54in"}
+generated](screenshots/image68.png) 
 
 A new window pops up informing the user that the file was processed and
 then is closed after the user presses 'OK' or after the window is
 closed.
 
 ![A computer screen shot of a program Description automatically
-generated](screenshots/image69.png){width="4.25in" height="1.51in"}
+generated](screenshots/image69.png) 
 
 The original window then closes.
 
-![](screenshots/image70.png){width="4.25in" height="0.61in"}
+![](screenshots/image70.png) 
 
 **Application Visuals and Usage:**
 
@@ -800,42 +779,39 @@ review column name, and indicate whether the reviews are in English
 appears.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image71.png){width="4.25in" height="2.46in"}
+generated](screenshots/image71.png) 
 
 If the user hits the OK button without selecting a file, this popup
 appears notifying the user and preventing the code from running.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image72.png){width="4.25in" height="2.46in"}
+generated](screenshots/image72.png) 
 
 After the user selects a file, if no column name is given for the review
 text, a popup appears preventing progression and alerting the user that
 the field is missing.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image73.png){width="4.256434820647419in"
-height="2.2658912948381453in"}
+generated](screenshots/image73.png)
 
 After both fields have data, a new window notifies the user that the
 file selected will be processed.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image74.png){width="4.2526312335958005in"
-height="1.3375207786526684in"}
+generated](screenshots/image74.png)
 
 While the file is processing, a progress bar appears that updates
 throughout the code's execution until the file has been processed.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image75.png){width="4.258274278215223in"
-height="2.422891513560805in"}
+generated](screenshots/image75.png)
 
 After the file has been processed, a new window appears and informs the
 user that the file was processed. After the user clicks OK, both the
 original window and the new window close.
 
 ![A screenshot of a computer Description automatically
-generated](screenshots/image76.png){width="4.25in" height="1.36in"}
+generated](screenshots/image76.png) 
 
 **Data Summary and Implications**
 
