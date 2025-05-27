@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hunter James – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="styles.css"
+    />
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="navbar-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="toggle-theme-btn" id="themeToggle" aria-label="Toggle Dark Mode">
+    <span class="toggle-theme-btn-indicator" id="themeIndicator">
+      <i class="fas fa-sun" id="themeIcon"></i>
+    </span>
+  </button>
+</nav>
+  <div class="container">
+    <div class="profile-header">
+      <img
+        src="https://i.imgur.com/E44ohdn.jpeg"
+        class="profile-pic"
+        alt="Professional Headshot"
+      />
+      <div>
+        <h1>Hunter James</h1>
+        <p class="tagline">Data Professional | Lifelong Learner</p>
+      </div>
+    </div>
+
+    <h2 id="about" class="fade-section">About Me</h2>
+    <p>
+      I am a data professional with an interest in constant learning and improvement.
+      <br />
+      I have worked in roles with tasks that align with those of a data analyst,
+      database developer, software specialist, data engineer, and DBA. <br />
+      I have experience with SQL, Python, R, Scala, HTML, ETL tools, and various business intelligence programs,
+      applied across manufacturing, healthcare, agriculture, and government.
+    </p>
+
+    <h2 id="experience">Work Experience</h2>
+    <div class="card fade-section">
+      <strong>SQL Developer</strong> | General Dynamics IT <em>(Jun 2023 – Present)</em>
+      <ul>
+        <li>Designed and developed new database structures, including ERDs.</li>
+        <li>
+          Created data migration scripts to transfer and reformat data, ensuring the
+          integrity of hundreds of millions of records.
+        </li>
+        <li>Utilized Databricks for the transformation and analysis of large datasets.</li>
+        <li>Optimized stored procedures, triggers, and indexes to improve performance.</li>
+        <li>Developed ETL pipelines using SSIS and ADF to automate workflows and migrate data.</li>
+        <li>Collaborated with cross-functional teams to ensure seamless database integration.</li>
+        <li>Managed the NCHHSTP’s SQL Server Production, Training, QA, Failover, and Development instances.</li>
+      </ul>
+    </div>
+    <div class="card fade-section">
+      <strong>Software Developer</strong> | TEKsystems <em>(Nov 2022 – Jun 2023)</em>
+      <ul>
+        <li>Contract to Hire for the CDC through General Dynamics (hired on at GDIT at the end of the contract).</li>
+        <li>Developed interactive dashboards on Power BI to visualize key metrics.</li>
+        <li>Created and optimized SQL functions, triggers, and stored procedures.</li>
+        <li>Designed and maintained SSIS &amp; ADF pipelines for ETL processes.</li>
+        <li>Worked with senior developers to enhance database efficiency and integrity.</li>
+        <li>Assisted in migration projects by refining data structures and processes.</li>
+      </ul>
+    </div>
+    <div class="card fade-section">
+      <strong>Application Specialist</strong> | Aviagen <em>(Jan 2022 – Oct 2022)</em>
+      <ul>
+        <li>Managed SQL databases and user access.</li>
+        <li>Beta-tested program updates and designed UI wireframes.</li>
+        <li>Provided reports using SQL, Ingres, Crystal Reports, and Qlik.</li>
+      </ul>
+    </div>
+    <div class="card fade-section">
+      <strong>Service Intelligence Analyst</strong> | LG <em>(Jul 2021 – Jan 2022)</em>
+      <ul>
+        <li>Analyzed call center data with Excel &amp; Python.</li>
+        <li>Used AWS, SAP BusinessObjects, SQL, and Sprinklr.</li>
+        <li>Automated reporting, reducing time by 70%.</li>
+      </ul>
+    </div>
+    <div class="card fade-section">
+      <strong>Data Analyst</strong> | Aviagen <em>(May 2020 – Jul 2021)</em>
+      <ul>
+        <li>Analyzed quality metrics and automated reports.</li>
+        <li>Created databases, cutting reporting effort by 90%.</li>
+      </ul>
+    </div>
+
+    <h2 id="education" class="fade-section">Education</h2>
+    <div class="card fade-section">
+      <strong>University of Illinois Urbana-Champaign</strong> (Aug 2024 - August 2026)
+      <ul>
+        <li style="list-style-type: none; padding-left: 0;">MBA</li>
+      </ul>
+    </div>
+    <div class="card fade-section">
+      <strong>Western Governors University</strong> (Mar 2024)
+      <ul>
+        <li style="list-style-type: none; padding-left: 0;">MS Data Analytics </li>
+      </ul>
+    </div>
+    <div class="card fade-section">
+      <strong>Royal Holloway, University of London</strong> (May 2020)
+      <ul>
+        <li style="list-style-type: none; padding-left: 0;">BS Accounting, Finance &amp; Economics</li>
+      </ul>
+    </div>
+
+    <h2 id="skills">Skills</h2>
+    <div class="card fade-section">
+      <ul>
+        <li><strong>Databases &amp; ETL:</strong> SQL, MS SQL Server, Ingres, SSIS, ADF, Databricks, Synapse</li>
+        <li><strong>Programming &amp; Analysis:</strong> Python, R, SQL, Excel (Power Query, PivotTables)</li>
+        <li><strong>BI &amp; Reporting:</strong> Power BI, Tableau, Qlik Sense, SAP BusinessObjects</li>
+        <li><strong>Languages:</strong> Spanish (B2 Proficiency)</li>
+      </ul>
+    </div>
+
+    <h2 id="projects" class="fade-section">Projects</h2>
+    <div class="card fade-section">
+      <a
+        class="project-link"
+        href="https://github.com/hunterjames47/hunterjames47/blob/225659197a1cdaa56f357fda5661488ceba447ff/Review%20Categorization%20-%20RNN/ReviewCategorization_Report.md"
+        >Review Categorization</a
+      >
+      – For my capstone project, in Python, I utilized RNNs to predict the star rating customers left products 
+      based on the content of the reviews. I then created an application that processes sets of reviews using the trained RNN and assigns them a rating. 
+    </div>
+
+    <h2 id="contact" class="fade-section">Contact</h2>
+    <div class="contact-icons">
+      <a href="mailto:hunterj68@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a
+      href="https://www.linkedin.com/in/hunter-james-305513187"
+      target="_blank"
+      title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.dropbox.com/scl/fi/f631ux3uxsc9g4uv0epru/HunterJamesResume2025.pdf?rlkey=momiddhbxzaz7iie8lr0hbetp&st=uhr4727f&dl=1"
+         download="HunterJamesResume2025.pdf"
+         class="btn"
+         target="_blank"
+         rel="noopener"
+         title="Download My Resume">
+        <i class="fa-solid fa-file"></i>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Hunter James
+  </footer>
+<script src="script.js"></script>
+</body>
+</html>
