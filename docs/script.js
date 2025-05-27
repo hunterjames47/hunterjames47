@@ -70,4 +70,3 @@
   document.querySelectorAll('.fade-section').forEach(section => {
     observer.observe(section);
 });
-
