@@ -2,7 +2,11 @@
 Hi! 👋 I am Hunter a data professional interested in learning, AI/ML, different aspects of data, and have experience in different data-oriented roles.
 
 ## About
+- Received my BS in Accounting, Finance, and Economics from Royal Holloway, Univerity of London 🇬🇧 and my MS in Data Analytics from Western Governors University 🦉
+
 - I am currently pursuing my MBA at the University of Illinois Urbana-Champaign, learning Java and practicing AI/ML.
+
+- Interested in not just how the data works but the benefits deeper and more accurate data usage provide 
 
 - Happy to collaborate on any project involving Java, Python, or anything AI/ML related!
 
