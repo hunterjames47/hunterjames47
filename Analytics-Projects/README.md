@@ -20,4 +20,7 @@ This repository contains several data analytics projects focused on customer beh
   *Extended exploratory and predictive analysis of churn.*  
 
 - 📉 **[Feature-Selection-PCA](Feature-Selection-PCA)**  
-  *Dimensionality Reduction – Using PCA for feature selection.*  
+  *Dimensionality Reduction – Using PCA for feature selection.*
+  
+- 🚗 **[Car Comparison Dashboard](Car-Comparison)**  
+  *Interactive Tableau dashboard comparing vehicle performance and costs.*  
