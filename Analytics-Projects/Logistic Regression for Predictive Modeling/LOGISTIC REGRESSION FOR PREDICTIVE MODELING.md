@@ -134,87 +134,87 @@ C.
 
 2. The target variable is churn which is binary. The predictor variables can be seen below with each object datatype representing categorical variables, and the float and int datatypes representing continuous and ordinal variables. There are 50 variables over and 10,000 entries.
 
-
+![Image 1](images/image1.png)
 
 3.  To prepare the data for analysis, the first steps are to import the libraries that will be used, importing the CSV, and checking the data for nulls and duplicates.
 
+![Image 2](images/image2.png)
 
-
-
+![Image 3](images/image3.png)
 
 After checking for nulls and duplicates, the columns are checked to ensure the column name is representative of the data and to ensure that we are familiar with what is being removed. The columns are then checked for any obviously incorrect values like a negative income or negative age. Variables not needed for this analysis (Customer_id', 'Lat', ‘Lng', 'County', 'Zip', 'Interaction', 'CaseOrder', 'Job', 'UID', 'City', 'Area', 'State', 'TimeZone', 'Income', and 'Population') are then dropped.
 
-
+![Image 4](images/image4.png)
 
 Categorical variables are reformatted into a true/false binary by reducing the categories. This can be seen in the ‘Gender’ variable, where the variable was converted to ‘Male?’. If the value was originally Male, it results in a True in the new column, otherwise, it is false. For continuous variables with a large range and lack of zeroes such as ‘MonthlyCharge’, the values were split based on whether they were above the mean or not.  If the values are greater than the mean, then in the new column ‘HighCharge’, the customer will have a true, otherwise, it will be recorded as a false.
 
-
+![Image 5](images/image5.png)
 
 Continuous variables that had zeroes were split up based on whether the object being counted existed or not. For the ‘Children’ variable, if the customer had children, they would receive a true, otherwise, a false would be recorded.
 
-
+![Image 6](images/image6.png)
 
 The ‘InternetService’ variable was split up into two variables, one being ’FiberOptic’ and the other being ‘DSL’. In each respective column, the customer would only receive a true if they had that type of service, otherwise, it would be a false.
 
+![Image 7](images/image7.png)
 
+![Image 8](images/image8.png)
 
-
-
-
+![Image 9](images/image9.png)
 
 The survey results were coded as true or false based on importance. If the customer had responded less than or equal to 4, a true would be recorded, otherwise, a false would be recorded.
 
-
+![Image 10](images/image10.png)
 
 The new columns were then converted into the bool type since the variables are all in true/false binary. The old columns are then dropped.
 
-
+![Image 11](images/image11.png)
 
 The variables are then checked to ensure nothing was overlooked.
 
-
+![Image 12](images/image12.png)
 
 4.
 
 Univariate:
 
+![Image 13](images/image13.png)
+
+![Image 14](images/image14.png)
+
+![Image 15](images/image15.png)
+
+![Image 16](images/image16.png)
+
+![Image 17](images/image17.png)
+
+![Image 18](images/image18.png)
+
+![Image 19](images/image19.png)
+
+![Image 20](images/image20.png)
 
 
 
+![Image 21](images/image21.png)
 
+![Image 22](images/image22.png)
 
+![Image 23](images/image23.png)
 
+![Image 24](images/image24.png)
 
+![Image 25](images/image25.png)
 
+![Image 26](images/image26.png)
 
+![Image 27](images/image27.png)
 
+![Image 28](images/image28.png)
 
+![Image 29](images/image29.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Image 30](images/image30.png)
 
 5.  See Attached.
 
@@ -228,27 +228,27 @@ D.
 
 Initial Logistic Regression;
 
+![Image 31](images/image31.png)
 
-
-
+![Image 32](images/image32.png)
 
 2.  To reduce the variables, the eigenvalues were measured and plotted. Based on the eigenvalues, it was decided to narrow down the predictor variables to 9. To select the 9 predictor variables, SelectKBest was performed.
 
+![Image 33](images/image33.png)
 
+![Image 34](images/image34.png)
 
-
-
-
+![Image 35](images/image35.png)
 
 The following 9 with the highest values were chosen.
 
-
+![Image 36](images/image36.png)
 
 3.
 
 Reduced logistic regression model:
 
-
+![Image 37](images/image37.png)
 
 
 
@@ -344,78 +344,3 @@ What is logistic regression?. Statistics Solutions. (2022, June 14). https://www
 
 
 
-
-
-![Image 1](images/image1.png)
-
-![Image 2](images/image2.png)
-
-![Image 3](images/image3.png)
-
-![Image 4](images/image4.png)
-
-![Image 5](images/image5.png)
-
-![Image 6](images/image6.png)
-
-![Image 7](images/image7.png)
-
-![Image 8](images/image8.png)
-
-![Image 9](images/image9.png)
-
-![Image 10](images/image10.png)
-
-![Image 11](images/image11.png)
-
-![Image 12](images/image12.png)
-
-![Image 13](images/image13.png)
-
-![Image 14](images/image14.png)
-
-![Image 15](images/image15.png)
-
-![Image 16](images/image16.png)
-
-![Image 17](images/image17.png)
-
-![Image 18](images/image18.png)
-
-![Image 19](images/image19.png)
-
-![Image 20](images/image20.png)
-
-![Image 21](images/image21.png)
-
-![Image 22](images/image22.png)
-
-![Image 23](images/image23.png)
-
-![Image 24](images/image24.png)
-
-![Image 25](images/image25.png)
-
-![Image 26](images/image26.png)
-
-![Image 27](images/image27.png)
-
-![Image 28](images/image28.png)
-
-![Image 29](images/image29.png)
-
-![Image 30](images/image30.png)
-
-![Image 31](images/image31.png)
-
-![Image 32](images/image32.png)
-
-![Image 33](images/image33.png)
-
-![Image 34](images/image34.png)
-
-![Image 35](images/image35.png)
-
-![Image 36](images/image36.png)
-
-![Image 37](images/image37.png)
