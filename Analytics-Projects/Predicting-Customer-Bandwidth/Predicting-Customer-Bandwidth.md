@@ -1,148 +1,39 @@
-MULTIPLE REGRESSION FOR PREDICTIVE MODELING
+<div align="center">
+# Multiple Regression for Predicting Customer Bandwidth Usage
+</div>
 
 
+Given the information collected regarding customers, what is the expected data usage (in gigabytes per year) of the customer?
 
 
 
+The objective of this data analysis is determining the expected data usage a customer is predicted to have given the collected data regarding services and factors surrounding service such as demographic data. With this information, the company can better identify “power users”.
 
 
+In multiple regression models there are five main assumptions. The five are linearity, homoscedasticity, independence, normality, and no multicollinearity (Bedre, 2021). The first assumption, linearity, assumes that a linear relation exists between predictor and response variables. Homoscedasticity assumes a constant variance. Independence assumes the “observations are independent’ (Zach, 2021). Normality assumes normally distributed residuals.  Lastly, no multicollinearity assumes that the predictor variables are not strongly correlated with one another.
 
 
 
+Python was chosen due to the expansive list of libraries, my familiarity with the program, and the usefulness of Jupyter notebooks, which allows me to segment the code and document it for the assignment more easily. This segmentation also allows me to troubleshoot and revise the code more easily as needed. Python is a very capable program with libraries such as seaborn, scikit, and pandas that allow for the generation, comparison, and analysis of the multiple regression models utilized below.
 
 
 
+Multiple regression is an appropriate technique as it measures the variation of the dependent variable, in this case data usage per year, using two or more independent variables, the services or characteristics regarding the customer’s services. This will allow the impact to be measured with more accuracy and with a model that is more complex than a single regression (Basics of multiple regression and underlying assumptions). This also allows for a prediction regarding a continuous dependent variable unlike something like a logistic regression. This is important as the dependent variable being researched is data usage per year, which is continuous.
 
 
 
 
+The goal of data preparation is to ensure the data is not only clean but trimmed down into a more useable format via dimension reduction, coding the categorical variables, and dropping unnecessary variables.  The first thing to be done is to check for duplicates and nulls. After ensuring that there are no nulls or duplicates, columns with data that is too specific/not needed for the analysis such as ‘Churn’ will be removed.  The remaining columns are then checked for outliers. Afterwards categorical predictor variables are handled one of three ways. Firstly, those with more than two categories, such as the ‘Marital” variable are coded into zeroes and ones, depending on whether the variable is true for the customer. In the ‘Marital’ variable example, the customer will have a 0 if they are anything but presently married, and a 1 if they are presently married. Other predictor variables with more categories, such as ‘Internet’, are coded into categorical variables with 0 representing no internet and 1 and 2 representing fiber optic and DSL respectively. The remaining variables are converted from yes/no to 1/0 with 1 representing yes/true and 0 representing no/false.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Part I: Research Question
-
-A.
-
-1. Given the information collected regarding customers, what is the expected data usage (in gigabytes per year) of the customer?
-
-
-
-2. The objective of this data analysis is determining the expected data usage a customer is predicted to have given the collected data regarding services and factors surrounding service such as demographic data. With this information, the company can better identify “power users”.
-
-
-
-Part II: Method Justification
-
-B.
-
-1.  In multiple regression models there are five main assumptions. The five are linearity, homoscedasticity, independence, normality, and no multicollinearity (Bedre, 2021). The first assumption, linearity, assumes that a linear relation exists between predictor and response variables. Homoscedasticity assumes a constant variance. Independence assumes the “observations are independent’ (Zach, 2021). Normality assumes normally distributed residuals.  Lastly, no multicollinearity assumes that the predictor variables are not strongly correlated with one another.
-
-
-
-2.  Python was chosen due to the expansive list of libraries, my familiarity with the program, and the usefulness of Jupyter notebooks, which allows me to segment the code and document it for the assignment more easily. This segmentation also allows me to troubleshoot and revise the code more easily as needed. Python is a very capable program with libraries such as seaborn, scikit, and pandas that allow for the generation, comparison, and analysis of the multiple regression models utilized below.
-
-
-
-3.  Multiple regression is an appropriate technique as it measures the variation of the dependent variable, in this case data usage per year, using two or more independent variables, the services or characteristics regarding the customer’s services. This will allow the impact to be measured with more accuracy and with a model that is more complex than a single regression (Basics of multiple regression and underlying assumptions). This also allows for a prediction regarding a continuous dependent variable unlike something like a logistic regression. This is important as the dependent variable being researched is data usage per year, which is continuous.
-
-
-
-Part III: Data Preparation
-
-C.
-
-1.  The goal of data preparation is to ensure the data is not only clean but trimmed down into a more useable format via dimension reduction, coding the categorical variables, and dropping unnecessary variables.  The first thing to be done is to check for duplicates and nulls. After ensuring that there are no nulls or duplicates, columns with data that is too specific/not needed for the analysis such as ‘Churn’ will be removed.  The remaining columns are then checked for outliers. Afterwards categorical predictor variables are handled one of three ways. Firstly, those with more than two categories, such as the ‘Marital” variable are coded into zeroes and ones, depending on whether the variable is true for the customer. In the ‘Marital’ variable example, the customer will have a 0 if they are anything but presently married, and a 1 if they are presently married. Other predictor variables with more categories, such as ‘Internet’, are coded into categorical variables with 0 representing no internet and 1 and 2 representing fiber optic and DSL respectively. The remaining variables are converted from yes/no to 1/0 with 1 representing yes/true and 0 representing no/false.
-
-
-
-2. The target variable is ‘Bandwidth_GB_Year’ which is continuous and stored as float64. The predictor variables can be seen below with each object datatype representing categorical variables, and the float and int datatypes representing continuous and ordinal variables. There are 50 variables over and 10,000 entries.
+The target variable is ‘Bandwidth_GB_Year’ which is continuous and stored as float64. The predictor variables can be seen below with each object datatype representing categorical variables, and the float and int datatypes representing continuous and ordinal variables. There are 50 variables over and 10,000 entries.
 
 ![Image 1](images/image1.png)
 
 
 
-3. To prepare the data for analysis, the first steps are to import the libraries that will be used, importing the CSV, and checking the data for nulls and duplicates.
+To prepare the data for analysis, the first steps are to import the libraries that will be used, importing the CSV, and checking the data for nulls and duplicates.
 
 ![Image 2](images/image2.png)
 
@@ -177,8 +68,6 @@ Lastly, the survey results represented by the columns beginning with “Item” 
 ![Image 9](images/image9.png)
 
 
-
-4.
 
 Univariate Continuous:
 
@@ -227,16 +116,6 @@ Bivariate:
 
 
 
-
-
-
-
-
-5.  Please see attached
-
-
-
-Part IV and Part V:
 
 
 

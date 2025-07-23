@@ -1,142 +1,25 @@
+<div align="center">
+# Determining Churn Utilizing Logistic Regression
+</div>
 
 
+Given the predictor variables, will a customer churn?
 
+The objective of this data analysis is to determine whether a customer is expected to churn given the collected data regarding services and factors surrounding service such as demographic data. With this information, the company can better identify the steps needed to prevent churn.
 
-LOGISTIC REGRESSION FOR PREDICTIVE MODELING
+The logistic regression model assumes a few things. Firstly, it is assumed that the variable is either binary or ordinal. Secondly, the observations are assumed to be independent. Thirdly, there is assumed to be no multicollinearity. Lastly, the independent variables are assumed to be linearly related to log odds (Assumptions of logistic regression 2021).
 
+Python was chosen due to the expansive list of libraries, my familiarity with the program, and the usefulness of Jupyter notebooks, which allows me to segment the code and document it for the assignment more easily. This segmentation also allows me to troubleshoot and revise the code more easily as needed. Python is a very capable program with libraries such as seaborn, scikit, and pandas that allow for the generation, comparison, and analysis of the logistic regression models utilized below.
 
+Logistic regression is an appropriate technique as we want to determine whether the dependent variable is binary, occurs or does not occur (What is logistic regression? 2022). In this case, the dependent variable is whether a customer churns or does not churn, which is binary.
 
+The goal of data preparation is to ensure the data is not only clean but trimmed down into a more useable format via dimension reduction, coding the categorical variables, and dropping unnecessary variables.  The first thing to be done is to check for duplicates and nulls. After ensuring that there are no nulls or duplicates, columns with data that is too specific/not needed for the analysis will be removed.  The remaining columns are then checked for outliers and reduced to a true/false binary. Reducing the dimensionality of the data helps in ease of interpretation, analysis, and explanation. This change not only constitutes a type change for continuous and ordinal variables but also reformatting columns in a way that other categorical variables can be simplified into that two-answer binary.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Part I: Research Question
-
-A.
-
-1.  Given the predictor variables, will a customer churn?
-
-2.  The objective of this data analysis is to determine whether a customer is expected to churn given the collected data regarding services and factors surrounding service such as demographic data. With this information, the company can better identify the steps needed to prevent churn.
-
-Part II: Method Justification
-
-B.
-
-1.  The logistic regression model assumes a few things. Firstly, it is assumed that the variable is either binary or ordinal. Secondly, the observations are assumed to be independent. Thirdly, there is assumed to be no multicollinearity. Lastly, the independent variables are assumed to be linearly related to log odds (Assumptions of logistic regression 2021).
-
-2.  Python was chosen due to the expansive list of libraries, my familiarity with the program, and the usefulness of Jupyter notebooks, which allows me to segment the code and document it for the assignment more easily. This segmentation also allows me to troubleshoot and revise the code more easily as needed. Python is a very capable program with libraries such as seaborn, scikit, and pandas that allow for the generation, comparison, and analysis of the logistic regression models utilized below.
-
-3. Logistic regression is an appropriate technique as we want to determine whether the dependent variable is binary, occurs or does not occur (What is logistic regression? 2022). In this case, the dependent variable is whether a customer churns or does not churn, which is binary.
-
-
-
-Part III: Data Preparation
-
-C.
-
-1.  The goal of data preparation is to ensure the data is not only clean but trimmed down into a more useable format via dimension reduction, coding the categorical variables, and dropping unnecessary variables.  The first thing to be done is to check for duplicates and nulls. After ensuring that there are no nulls or duplicates, columns with data that is too specific/not needed for the analysis will be removed.  The remaining columns are then checked for outliers and reduced to a true/false binary. Reducing the dimensionality of the data helps in ease of interpretation, analysis, and explanation. This change not only constitutes a type change for continuous and ordinal variables but also reformatting columns in a way that other categorical variables can be simplified into that two-answer binary.
-
-
-
-2. The target variable is churn which is binary. The predictor variables can be seen below with each object datatype representing categorical variables, and the float and int datatypes representing continuous and ordinal variables. There are 50 variables over and 10,000 entries.
+The target variable is churn which is binary. The predictor variables can be seen below with each object datatype representing categorical variables, and the float and int datatypes representing continuous and ordinal variables. There are 50 variables over and 10,000 entries.
 
 ![Image 1](images/image1.png)
 
-3.  To prepare the data for analysis, the first steps are to import the libraries that will be used, importing the CSV, and checking the data for nulls and duplicates.
+To prepare the data for analysis, the first steps are to import the libraries that will be used, importing the CSV, and checking the data for nulls and duplicates.
 
 ![Image 2](images/image2.png)
 
@@ -174,7 +57,6 @@ The variables are then checked to ensure nothing was overlooked.
 
 ![Image 12](images/image12.png)
 
-4.
 
 Univariate:
 
@@ -216,15 +98,6 @@ Univariate:
 
 ![Image 30](images/image30.png)
 
-5.  See Attached.
-
-
-
-Part IV and V:
-
-D.
-
-1.
 
 Initial Logistic Regression;
 
@@ -232,7 +105,7 @@ Initial Logistic Regression;
 
 ![Image 32](images/image32.png)
 
-2.  To reduce the variables, the eigenvalues were measured and plotted. Based on the eigenvalues, it was decided to narrow down the predictor variables to 9. To select the 9 predictor variables, SelectKBest was performed.
+To reduce the variables, the eigenvalues were measured and plotted. Based on the eigenvalues, it was decided to narrow down the predictor variables to 9. To select the 9 predictor variables, SelectKBest was performed.
 
 ![Image 33](images/image33.png)
 
@@ -243,8 +116,6 @@ Initial Logistic Regression;
 The following 9 with the highest values were chosen.
 
 ![Image 36](images/image36.png)
-
-3.
 
 Reduced logistic regression model:
 

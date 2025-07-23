@@ -1,9 +1,13 @@
+<div align="center">
+# Clustering Techniques
+</div>
 
 
+A business’s primary goal is to maximize profit. In that regard, it is important to ascertain factors that contribute the most financially. Generally, a consumer’s demand in goods rises with their respective income level. This poses an important question, do customers who earn more income tend to pay more monthly?  I will use k-means clustering to group customers based on the two aforementioned factors.
 
 
-CLUSTERING TECHNIQUES
 
+The goal of the data analysis is to create clusters based on income level and monthly charge per customer to better market and retain high charge customers.
 
 
 
@@ -13,122 +17,15 @@ CLUSTERING TECHNIQUES
 
 
 
+K-Means assigns each data point to a cluster, computes the center of each cluster, and iteratively reassigns each point to the cluster with the closest center until the cluster assigned remains constant (Machine learning - K-means). It is expected that the data will be separated into n clusters based on the results of the code, and the relation between Income and MonthlyCharge. These clusters should be visually verifiable.
 
 
 
+K-means, the method chosen, assumes “equal variance” for “features within a cluster” (Nagar, 2020). To satisfy the equal variance assumption, the data will be standardized within the code prior to analysis.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Part I: Research Question
-
-A.
-
-1.  A business’s primary goal is to maximize profit. In that regard, it is important to ascertain factors that contribute the most financially. Generally, a consumer’s demand in goods rises with their respective income level. This poses an important question, do customers who earn more income tend to pay more monthly?  I will use k-means clustering to group customers based on the two aforementioned factors.
-
-
-
-2.  The goal of the data analysis is to create clusters based on income level and monthly charge per customer to better market and retain high charge customers.
-
-
-
-
-
-
-
-
-
-Part II: Technique Justification
-
-B.
-
-1.  K-Means assigns each data point to a cluster, computes the center of each cluster, and iteratively reassigns each point to the cluster with the closest center until the cluster assigned remains constant (Machine learning - K-means). It is expected that the data will be separated into n clusters based on the results of the code, and the relation between Income and MonthlyCharge. These clusters should be visually verifiable.
-
-
-
-2.  K-means, the method chosen, assumes “equal variance” for “features within a cluster” (Nagar, 2020). To satisfy the equal variance assumption, the data will be standardized within the code prior to analysis.
-
-
-
-3.  I have listed the importation code below and the reasoning behind each one below.
+I have listed the importation code below and the reasoning behind each one below.
 
 
 
@@ -152,22 +49,15 @@ from sklearn.metrics import silhouette_score – The method used to judge the qu
 
 
 
-Part III: Data Preparation
-
-C.
-
-1. For preprocessing, I will be checking the data for null values, and, as per the necessities of k-means clustering, the data will be standardized (Dabbura, 2022).
+For preprocessing, I will be checking the data for null values, and, as per the necessities of k-means clustering, the data will be standardized (Dabbura, 2022).
 
 
-
-2.  The two variables I will be using are ‘MonthlyCharge’ and ‘Income’, which are both continuous.
-
+The two variables I will be using are ‘MonthlyCharge’ and ‘Income’, which are both continuous.
 
 
-3.  Firstly, the relevant libraries were imported.
+Firstly, the relevant libraries were imported.
 
 ![Image 1](images/image1.png)
-
 
 
 
@@ -190,43 +80,27 @@ Fourthly, the values of the two remaining columns were checked for nulls/extrane
 
 ![Image 4](images/image4.png)
 
-4.     The cleaned dataset is attached in the provided zip file.
 
 
 
 
 
-Part IV: Analysis
-
-D.
-
-1.  While there is a bit of subjectiveness as to the optimal quantity of clusters, I used the elbow method. With the elbow method, the number of clusters is chosen at the line graph’s bend, or “elbow” (Dangeti, 2017). As such, 3 was chosen for the suitable number of clusters as that point is the closest to resembling a bend on the graph.
+While there is a bit of subjectiveness as to the optimal quantity of clusters, I used the elbow method. With the elbow method, the number of clusters is chosen at the line graph’s bend, or “elbow” (Dangeti, 2017). As such, 3 was chosen for the suitable number of clusters as that point is the closest to resembling a bend on the graph.
 
 ![Image 5](images/image5.png)
 
 
 
-2.  The code used to perform the clustering analysis technique is attached in the provided zip file.
 
 
 
-
-
-
-
-
-
-Part V: Data Summary and Implications
-
-E.
-
-1.   For measuring the accuracy, the silhouette score was calculated. As can be seen below, the silhouette score is positive and closer to 1 than 0, at 0.515. The closer to 1 there is, the more separation, and the closer to 0, the more overlap (Samina). This indicates that the model correctly classified the data within the clusters and that the clusters are slightly more separated than overlapped.
+For measuring the accuracy, the silhouette score was calculated. As can be seen below, the silhouette score is positive and closer to 1 than 0, at 0.515. The closer to 1 there is, the more separation, and the closer to 0, the more overlap (Samina). This indicates that the model correctly classified the data within the clusters and that the clusters are slightly more separated than overlapped.
 
 ![Image 6](images/image6.png)
 
 
 
-2.  According to the silhouette score, K-Means managed to accurately identify and classify each datapoint into one of three clusters. The potential overlap that was mentioned in the section above is demonstrated in the scatterplot below as there are no visual gaps between the clusters.
+According to the silhouette score, K-Means managed to accurately identify and classify each datapoint into one of three clusters. The potential overlap that was mentioned in the section above is demonstrated in the scatterplot below as there are no visual gaps between the clusters.
 
 
 
@@ -254,11 +128,11 @@ Based on the centroid of each cluster as well as through visual verification, it
 
 ![Image 7](images/image7.png)
 
-3.  There are a few limitations. Firstly, is that this analysis was performed using K-Means on two variables, income and monthly charge. It is possible that using a different model, or performing analysis on the excluded variables could provide a higher silhouette score. There is also an issue regarding the number of clusters. 3 clusters, while decided using an appropriate technique, is still subjective and could be argued to need more clusters or fewer clusters.
+There are a few limitations. Firstly, is that this analysis was performed using K-Means on two variables, income and monthly charge. It is possible that using a different model, or performing analysis on the excluded variables could provide a higher silhouette score. There is also an issue regarding the number of clusters. 3 clusters, while decided using an appropriate technique, is still subjective and could be argued to need more clusters or fewer clusters.
 
 
 
-4.  It is recommended that the organization performs additional analysis to determine if there are variables with a greater impact on monthly charges. As per the above analysis, the company would want to focus on cluster 1, however income does not appear to be the best predictor for monthly charges as high earners were mostly grouped in a separate cluster, cluster 2. To further this point, cluster 2’s center was lower on the monthly charge axis indicating that it can be counterproductive to focus solely on high income individuals
+It is recommended that the organization performs additional analysis to determine if there are variables with a greater impact on monthly charges. As per the above analysis, the company would want to focus on cluster 1, however income does not appear to be the best predictor for monthly charges as high earners were mostly grouped in a separate cluster, cluster 2. To further this point, cluster 2’s center was lower on the monthly charge axis indicating that it can be counterproductive to focus solely on high income individuals
 
 
 
