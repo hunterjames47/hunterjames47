@@ -1,6 +1,4 @@
-<div align="center">
-# Customer Churn - Extended Analysis
-</div>
+<h1 align="center">Customer Churn - Extended Analysis</h1>
 
 
 ![Image 1](images/image1.png)

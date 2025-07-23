@@ -1,6 +1,4 @@
-<div align="center">
-# Multiple Regression for Predicting Customer Bandwidth Usage
-</div>
+<h1 align="center">Multiple Regression for Predicting Customer Bandwidth Usage</h1>
 
 
 Given the information collected regarding customers, what is the expected data usage (in gigabytes per year) of the customer?

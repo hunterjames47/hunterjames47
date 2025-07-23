@@ -1,6 +1,4 @@
-<div align="center">
-# Association Rules and Lift Analysis
-</div>
+<h1 align="center">Association Rules and Lift Analysis</h1>
 
 
 Product recommendation and placement are crucial in maximizing revenue by acknowledging customers’ underlying spending habits. There tend to be item pairs or groups that are bought together, and recognizing those habits allows the business to provide recommendations that are better suited to its customer base’s spending trends. This presents the question, what purchase suggestions should the company make?

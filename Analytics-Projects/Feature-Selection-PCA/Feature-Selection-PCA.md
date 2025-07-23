@@ -1,6 +1,4 @@
-<div align="center">
-# Dimensionality Reduction Methods
-</div>
+<h1 align="center">Dimensionality Reduction Methods</h1>
 
 
 While excess data is certainly better than not having enough data, the inclusion of unnecessary or redundant fields can cause errors with models, poor accuracy, and by extension, wasted business resources. To that end, it is important to determine which fields are the most useful. This leads to an important question, which fields should be kept?

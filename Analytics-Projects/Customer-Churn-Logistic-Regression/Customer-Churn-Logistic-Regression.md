@@ -1,6 +1,4 @@
-<div align="center">
-# Determining Churn Utilizing Logistic Regression
-</div>
+<h1 align="center">Determining Churn Utilizing Logistic Regression</h1>
 
 
 Given the predictor variables, will a customer churn?

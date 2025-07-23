@@ -1,6 +1,4 @@
-<div align="center">
-# Clustering Techniques
-</div>
+<h1 align="center">Clustering Techniques</h1>
 
 
 A business’s primary goal is to maximize profit. In that regard, it is important to ascertain factors that contribute the most financially. Generally, a consumer’s demand in goods rises with their respective income level. This poses an important question, do customers who earn more income tend to pay more monthly?  I will use k-means clustering to group customers based on the two aforementioned factors.
