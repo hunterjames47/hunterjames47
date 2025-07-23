@@ -138,33 +138,33 @@ C.
 
 2. The target variable is ‘Bandwidth_GB_Year’ which is continuous and stored as float64. The predictor variables can be seen below with each object datatype representing categorical variables, and the float and int datatypes representing continuous and ordinal variables. There are 50 variables over and 10,000 entries.
 
-
+![Image 1](images/image1.png)
 
 
 
 3. To prepare the data for analysis, the first steps are to import the libraries that will be used, importing the CSV, and checking the data for nulls and duplicates.
 
+![Image 2](images/image2.png)
 
 
 
+![Image 3](images/image3.png)
 
-
-
-
+![Image 4](images/image4.png)
 
 After this, the values in each column are checked and unnecessary variables ('Customer_id', 'Lat', 'Lng', 'County', 'Zip', 'Interaction', 'CaseOrder', 'Job', 'UID', 'City', 'Area',  'State', 'TimeZone', and 'Churn') are dropped prior to any transformation.  The remaining variables are then checked for information that is very obviously incorrect, such as income being negative, age being below 18, etc.
 
 
 
-
+![Image 5](images/image5.png)
 
 Once the information is verified to not be wildly incorrect, the transformation process begins. Categorical variables such as ‘Gender’, ‘Marital’, and ‘InternetService’ are converted into numerical categorical variables. The ‘Gender’ and ‘Marital’ variables were reduced down to whether the customer is a male/married resulting in a 1, and if the customer is not, then the category is coded as a 0. The ‘InternetService’ variable was not reduced in this way but did have the categories coded to values between 0 and 2, with 0 representing no internet, 1 representing fiber optic, and 2 representing DSL.
 
-
+![Image 6](images/image6.png)
 
 Variables with that were exclusively yes and no were all coded with 0 representing a no, and 1 representing a yes. ‘Contract’ and ‘PaymentMethod’ were reduced a similar way to the ‘Gender’ and ‘Marital’ variables. ‘Contract’ now represents whether the customer is in a contract of any length, resulting in a 1, or not in a contract and resulting in a 0. ‘PaymentMethod’ was reduced to representing automatic payments only. If the payment is automatic, the value will be stored as a 1, and if the payment is anything else, it results in a 0.
 
-
+![Image 7](images/image7.png)
 
 
 
@@ -172,9 +172,9 @@ Lastly, the survey results represented by the columns beginning with “Item” 
 
 
 
+![Image 8](images/image8.png)
 
-
-
+![Image 9](images/image9.png)
 
 
 
@@ -182,43 +182,43 @@ Lastly, the survey results represented by the columns beginning with “Item” 
 
 Univariate Continuous:
 
+![Image 10](images/image10.png)
 
-
-
+![Image 11](images/image11.png)
 
 Univariate Categorical:
 
+![Image 12](images/image12.png)
 
+![Image 13](images/image13.png)
 
+![Image 14](images/image14.png)
 
+![Image 15](images/image15.png)
 
+![Image 16](images/image16.png)
 
-
-
-
-
-
-
+![Image 17](images/image17.png)
 
 Univariate Ordinal:
 
 
 
+![Image 18](images/image18.png)
 
+![Image 19](images/image19.png)
 
-
-
-
+![Image 20](images/image20.png)
 
 Bivariate:
 
+![Image 21](images/image21.png)
 
+![Image 22](images/image22.png)
 
+![Image 23](images/image23.png)
 
-
-
-
-
+![Image 24](images/image24.png)
 
 
 
@@ -246,9 +246,9 @@ y=406.1336 + 0.00001635 * Population + 30.9216 * Children - 3.2487 * Age + 0.000
 
 
 
+![Image 25](images/image25.png)
 
-
-
+![Image 26](images/image26.png)
 
 
 
@@ -262,9 +262,9 @@ y= 55.586 + 30.6111 * Children - 3.2756 * Age + 3.0394 * Contract + 72.0464 * On
 
 
 
+![Image 27](images/image27.png)
 
-
-
+![Image 28](images/image28.png)
 
 
 
@@ -272,11 +272,11 @@ Variable Selection and Analysis:
 
 For the first selection procedure, all predictor variables with a P>|t| greater than .05 were excluded. This left only variables that are statistically significant and narrowed it down a bit, however the large condition number needed to be evaluated to ensure the strong multicollinearity had also been reduced. For this, eigenvalues were checked, and the predictor variables with the lowest eigenvalues were excluded.
 
-
+![Image 29](images/image29.png)
 
 This resulted in the predictor variables ‘Multiple’, ’MonthlyCharge’, ’Timely Fixes’, and ‘Timely Response’ being dropped.
 
-
+![Image 30](images/image30.png)
 
 
 
@@ -382,64 +382,3 @@ Bedre, R. (2021, April 25). Multiple linear regression (MLR). Data science blog.
 
 Zach. (2021, November 16). The five assumptions of multiple linear regression. Statology. https://www.statology.org/multiple-linear-regression-assumptions/
 
-
-
-![Image 1](images/image1.png)
-
-![Image 2](images/image2.png)
-
-![Image 3](images/image3.png)
-
-![Image 4](images/image4.png)
-
-![Image 5](images/image5.png)
-
-![Image 6](images/image6.png)
-
-![Image 7](images/image7.png)
-
-![Image 8](images/image8.png)
-
-![Image 9](images/image9.png)
-
-![Image 10](images/image10.png)
-
-![Image 11](images/image11.png)
-
-![Image 12](images/image12.png)
-
-![Image 13](images/image13.png)
-
-![Image 14](images/image14.png)
-
-![Image 15](images/image15.png)
-
-![Image 16](images/image16.png)
-
-![Image 17](images/image17.png)
-
-![Image 18](images/image18.png)
-
-![Image 19](images/image19.png)
-
-![Image 20](images/image20.png)
-
-![Image 21](images/image21.png)
-
-![Image 22](images/image22.png)
-
-![Image 23](images/image23.png)
-
-![Image 24](images/image24.png)
-
-![Image 25](images/image25.png)
-
-![Image 26](images/image26.png)
-
-![Image 27](images/image27.png)
-
-![Image 28](images/image28.png)
-
-![Image 29](images/image29.png)
-
-![Image 30](images/image30.png)
