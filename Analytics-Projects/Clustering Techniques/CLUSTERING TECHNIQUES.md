@@ -1,8 +1,8 @@
-Association Rules and Lift Analysis
 
 
 
 
+CLUSTERING TECHNIQUES
 
 
 
@@ -102,101 +102,223 @@ Part I: Research Question
 
 A.
 
-1.  Product recommendation and placement are crucial in maximizing revenue by acknowledging customers’ underlying spending habits. There tend to be item pairs or groups that are bought together, and recognizing those habits allows the business to provide recommendations that are better suited to its customer base’s spending trends. This presents the question, what purchase suggestions should the company make?
+1.  A business’s primary goal is to maximize profit. In that regard, it is important to ascertain factors that contribute the most financially. Generally, a consumer’s demand in goods rises with their respective income level. This poses an important question, do customers who earn more income tend to pay more monthly?  I will use k-means clustering to group customers based on the two aforementioned factors.
 
 
 
-2.  The goal of the analysis is to determine which items are frequently bought together with relevant metrics to prune the list, such as support, lift, and confidence.
+2.  The goal of the data analysis is to create clusters based on income level and monthly charge per customer to better market and retain high charge customers.
 
-Part II: Market Basket Justification
+
+
+
+
+
+
+
+
+Part II: Technique Justification
 
 B.
 
-1.  Market basket analyzes the data by comparing counts of transactions in an if x then y format with an antecedent, x or the preceding item(s), and a consequent, y or the succeeding item(s). It is expected that market basket analysis will provide a list of rules that provide a meaningful insight into common customer transaction combinations (Randeniya, 2023). The list of rules will be accompanied with metrics such as lift, confidence, and support.
+1.  K-Means assigns each data point to a cluster, computes the center of each cluster, and iteratively reassigns each point to the cluster with the closest center until the cluster assigned remains constant (Machine learning - K-means). It is expected that the data will be separated into n clusters based on the results of the code, and the relation between Income and MonthlyCharge. These clusters should be visually verifiable.
 
 
 
-2.  An example of a transaction is in row 3 of the data set.
-
-![Image 1](images/image1.png)
-
-Row 3’s transaction consists of 3 items.
+2.  K-means, the method chosen, assumes “equal variance” for “features within a cluster” (Nagar, 2020). To satisfy the equal variance assumption, the data will be standardized within the code prior to analysis.
 
 
 
-3.  The primary assumption of market basket analysis is that customers who purchase an item, or items, are more predisposed to purchasing another item or group of items (Indeed, 2022).
+3.  I have listed the importation code below and the reasoning behind each one below.
 
 
 
-Part III: Data Preparation and Analysis
+import pandas as pd – Allows for the manipulation and creation of dataframes.
+
+from sklearn.preprocessing import StandardScaler – Standardizes the data.
+
+from scipy.cluster.vq import kmeans, vq – The clustering technique and cluster labeling method.
+
+import seaborn as sns – The method of graphing the data.
+
+import os as os – Allows me to change the directory for file storage/calling within the code.
+
+from sklearn.metrics import silhouette_score – The method used to judge the quality of the K-Means clusters.
+
+
+
+
+
+
+
+
+
+Part III: Data Preparation
 
 C.
 
-1.  Please see the zip file for the attached clean data set.
+1. For preprocessing, I will be checking the data for null values, and, as per the necessities of k-means clustering, the data will be standardized (Dabbura, 2022).
 
 
 
-2.  Execute the code used to generate association rules with the Apriori algorithm. Provide screenshots that demonstrate that the code is error free.
+2.  The two variables I will be using are ‘MonthlyCharge’ and ‘Income’, which are both continuous.
+
+
+
+3.  Firstly, the relevant libraries were imported.
+
+![Image 1](images/image1.png)
+
+
+
+
+
+Secondly, the CSV was loaded into the coding project.
 
 ![Image 2](images/image2.png)
 
 
 
-3.  Provide values for the support, lift, and confidence of the association rules table.
+Thirdly, ‘MonthlyCharge’ and ‘Income’ were saved into a data frame.
+
+
 
 ![Image 3](images/image3.png)
 
+Fourthly, the values of the two remaining columns were checked for nulls/extraneous values and standardized.
 
 
-4.  The top 3 rules are:
-
-HP 61 ink, Dust-Off Compress Gas 2 Pack
-
-Vivo Dual LCD Monitor Desk mount, Dust-Off Compress Gas 2 Pack
-
-Dust-Off Compress Gas 2 Pack, Vivo Dual LCD Monitor Desk mount
-
-This means that when a customer purchases the first item, there is good evidence to support the customer buying the second item.
 
 ![Image 4](images/image4.png)
 
+4.     The cleaned dataset is attached in the provided zip file.
 
 
-Part IV: Data Summary and Implications
+
+
+
+Part IV: Analysis
 
 D.
 
-1. From the analysis, we see that for rule 1, the support is 0.0527, the confidence is 0.3214 and the lift is 1.3483. This means that this pairing occurs in 5.27% of all transactions, that when the HP 61 ink is bought, the Dust-Off Compressed Gas 2 pack is bought 32.14% of the time, and that when the HP 61 ink is bought, compressed gas is bought 34.83% more often than typical.
+1.  While there is a bit of subjectiveness as to the optimal quantity of clusters, I used the elbow method. With the elbow method, the number of clusters is chosen at the line graph’s bend, or “elbow” (Dangeti, 2017). As such, 3 was chosen for the suitable number of clusters as that point is the closest to resembling a bend on the graph.
 
-For rule 2 the support is 0.0597, the confidence is 0.3430 and the lift is 1.4391. This pairing occurs in 5.97% of all transactions. When the VIVO Dual LCD Monitor Desk mount is bought, the Dust-Off Compressed Gas 2 pack is bought 34.30% of the time, and when the VIVO Dual LCD Monitor Desk mount is bought, compressed gas is bought 43.91% more often than typical.
-
-For rule 3 the support is 0.0597, the confidence is 0.2506 and the lift is 1.4391. This pairing occurs in 5.97% of all transactions. When the Dust-Off Compressed Gas 2 pack is bought, the VIVO Dual LCD Monitor Desk mount is bought 25.06% of the time, and when the compressed gas pack is bought, the monitor desk mount is bought 43.91% more often than typical.
+![Image 5](images/image5.png)
 
 
 
-
-
-2.  The practical significance of the aforementioned findings is that the purchase of HP 61 ink has a noticeable increase on the likelihood that the compressed gas 2 pack is purchased, and that the dual LCD monitor desk mount and the compressed gas 2 pack both have a positive impact on if the other item is purchased.
-
-
-
-3.It is recommended that the company suggests the compressed gas 2 pack to customers who have purchased or are purchasing the HP 61 ink or the dual LCD monitor desk mount, and that the company recommends the dual LCD monitor desk mount to customers who have purchased or are purchasing the compressed gas 2 pack. If the company operates a physical location, these items should be placed together in such a way that the compressed gas is next to both the monitor stand and the HP ink.
+2.  The code used to perform the clustering analysis technique is attached in the provided zip file.
 
 
 
-F.  Code sources:
-
-Data Mining II - D212. Panopto. (n.d.). https://wgu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=dbe89ddb-e92f-4d40-a87a-af030178abf1  (Data transformation and additional pruning)
-
-Identifying frequent itemsets with Apriori. Python. (n.d.). https://campus.datacamp.com/courses/market-basket-analysis-in-python/aggregation-and-pruning?ex=6 (Apriori code)
-
-Pruning with lift. Python. (n.d.-b). https://campus.datacamp.com/courses/market-basket-analysis-in-python/aggregation-and-pruning?ex=10 (Association rules code)
 
 
 
-G.  Sources:
 
-Indeed Editorial Team. (2022, October 12). What Is Market Basket Analysis? (Types Plus Examples). FAQ: What Is Market Basket Analysis? (Types Plus Examples). https://sg.indeed.com/career-advice/career-development/market-basket-analysis
 
-Randeniya, M. (2023, April 16). Performing a market-basket analysis using the Apriori algorithm - python. Medium. https://medium.com/@randeniyamalitha08/performing-a-market-basket-analysis-using-the-apriori-algorithm-python-8a11742253dd
+
+Part V: Data Summary and Implications
+
+E.
+
+1.   For measuring the accuracy, the silhouette score was calculated. As can be seen below, the silhouette score is positive and closer to 1 than 0, at 0.515. The closer to 1 there is, the more separation, and the closer to 0, the more overlap (Samina). This indicates that the model correctly classified the data within the clusters and that the clusters are slightly more separated than overlapped.
+
+![Image 6](images/image6.png)
+
+
+
+2.  According to the silhouette score, K-Means managed to accurately identify and classify each datapoint into one of three clusters. The potential overlap that was mentioned in the section above is demonstrated in the scatterplot below as there are no visual gaps between the clusters.
+
+
+
+The centroids of each cluster are marked, and the locations of each cluster center are listed below.
+
+Cluster 0’s center is the lowest on the monthly charge axis and the lowest on the income axis
+
+coordinates -0.6896, -0.4570. Cluster 1’s center is much higher than cluster 0’s on the monthly
+
+charge axis center and is slightly on the income axis at coordinates 1.0597, -0.3236. Cluster 2’s
+
+center is between cluster 0 and cluster 1’s center on the monthly charge axis but is much higher
+
+on the income axis at coordinates -0.1944, 1.4948.
+
+
+
+Based on the centroid of each cluster as well as through visual verification, it can be assumed that cluster 0 and cluster 1 are primarily determined by monthly charge, with cluster 0 being a lower monthly charge and cluster 1 being a higher monthly charge. The income axis of both clusters’ centers are 0.13 standard deviations different from each other, while on the monthly charge axis the centers are 1.75 standard deviations different from one another. Cluster 2 is determined by income. The monthly charge is slightly on the lower side being -0.19 standard deviations lower than 0, however the income is much higher at 1.49 standard deviations away from zero.
+
+
+
+
+
+
+
+![Image 7](images/image7.png)
+
+3.  There are a few limitations. Firstly, is that this analysis was performed using K-Means on two variables, income and monthly charge. It is possible that using a different model, or performing analysis on the excluded variables could provide a higher silhouette score. There is also an issue regarding the number of clusters. 3 clusters, while decided using an appropriate technique, is still subjective and could be argued to need more clusters or fewer clusters.
+
+
+
+4.  It is recommended that the organization performs additional analysis to determine if there are variables with a greater impact on monthly charges. As per the above analysis, the company would want to focus on cluster 1, however income does not appear to be the best predictor for monthly charges as high earners were mostly grouped in a separate cluster, cluster 2. To further this point, cluster 2’s center was lower on the monthly charge axis indicating that it can be counterproductive to focus solely on high income individuals
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+G. Code sources:
+
+Elbow method on distinct clusters. Python. (n.d.). https://campus.datacamp.com/courses/cluster-analysis-in-python/k-means-clustering-3?ex=5 (Used for K-Means and the Elbow method)
+
+Uniform clustering patterns. Python. (n.d.-b). https://campus.datacamp.com/courses/cluster-analysis-in-python/k-means-clustering-3?ex=9 (Used for cluster labels and plotting)
+
+
+
+
+
+
+
+H. Sources:
+
+Dabbura, I. (2022, September 27). K-means clustering: Algorithm, applications, evaluation methods, and drawbacks. Medium. https://towardsdatascience.com/k-means-clustering-algorithm-applications-evaluation-methods-and-drawbacks-aa03e644b48a#:~:text=Since%20clustering%20algorithms%20including%20kmeans,units%20of%20measurements%20such%20as
+
+Dangeti, P. (2017). The elbow method. In Statistics for Machine Learning. essay, Packt.
+
+Nagar, A. (2020, January 30). K-means clustering - everything you need to know. Medium. https://medium.com/analytics-vidhya/k-means-clustering-everything-you-need-to-know-175dd01766d5#f6a0
+
+Samina. (n.d.). Educative answers - trusted answers to developer questions. Educative. https://www.educative.io/answers/what-is-silhouette-score
+
+W3. (n.d.). Machine learning - K-means. Python Machine Learning - K-means. https://www.w3schools.com/python/python_ml_k-means.asp#:~:text=How%20does%20it%20work%3F,cluster%20with%20the%20closest%20centroid
 
