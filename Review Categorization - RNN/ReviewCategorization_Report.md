@@ -1,8 +1,10 @@
-**Review Categorization: Data Analysis Report And Executive Summary**
+<h1 align="center">Review Categorization: Data Analysis Report And Executive Summary</h1>
 
-**Hunter James**
+<br>
 
-**Table of Contents**
+<h3 align="center">Table of Contents</h3>
+<div align="center">
+
 
 1\. **Introduction and Research Question** \...\..... Page 1
 
@@ -37,9 +39,17 @@ Page 19
 
 7.2 Code References \...\...\...\...\...\...\...\...\...\.... Page 38
 
-**Introduction and Research Question**
+</div>
 
- 
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+**Introduction and Research Question**
 
 For businesses, data is worth its weight in gold. Fortunately, many
 sources of data are quite easily available. Unfortunately, these data
