@@ -118,7 +118,7 @@ B.
 
 2.  An example of a transaction is in row 3 of the data set.
 
-
+![Image 1](images/image1.png)
 
 Row 3’s transaction consists of 3 items.
 
@@ -138,13 +138,13 @@ C.
 
 2.  Execute the code used to generate association rules with the Apriori algorithm. Provide screenshots that demonstrate that the code is error free.
 
-
+![Image 2](images/image2.png)
 
 
 
 3.  Provide values for the support, lift, and confidence of the association rules table.
 
-
+![Image 3](images/image3.png)
 
 
 
@@ -158,7 +158,7 @@ Dust-Off Compress Gas 2 Pack, Vivo Dual LCD Monitor Desk mount
 
 This means that when a customer purchases the first item, there is good evidence to support the customer buying the second item.
 
-
+![Image 4](images/image4.png)
 
 
 
@@ -188,62 +188,6 @@ For rule 3 the support is 0.0597, the confidence is 0.2506 and the lift is 1.439
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Part V: Attachments
-
-E.
-
-1.  Please see the provided link for the Panopto video.
-
-
-
 F.  Code sources:
 
 Data Mining II - D212. Panopto. (n.d.). https://wgu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=dbe89ddb-e92f-4d40-a87a-af030178abf1  (Data transformation and additional pruning)
@@ -260,12 +204,3 @@ Indeed Editorial Team. (2022, October 12). What Is Market Basket Analysis? (Type
 
 Randeniya, M. (2023, April 16). Performing a market-basket analysis using the Apriori algorithm - python. Medium. https://medium.com/@randeniyamalitha08/performing-a-market-basket-analysis-using-the-apriori-algorithm-python-8a11742253dd
 
-
-
-![Image 1](images/image1.png)
-
-![Image 2](images/image2.png)
-
-![Image 3](images/image3.png)
-
-![Image 4](images/image4.png)
